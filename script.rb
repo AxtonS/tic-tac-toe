@@ -35,7 +35,8 @@ end
 
 # Controls and options for the players
 class Player
-  attr_reader :name, :sign, :selection
+  attr_reader :sign, :selection
+  attr_accessor :name
 
   def initialize(name, sign)
     @name = name
@@ -44,6 +45,10 @@ class Player
 
   def input
     key = gets.chomp.downcase
+    until %w[q w e a s d z x c tl tm tr ml mm mr bl bm br].include?(key)
+      puts 'Please enter a valid input:'
+      key = gets.chomp.downcase
+    end
     keys = %w[q w e a s d z x c]
     semantic_keys = %w[tl tm tr ml mm mr bl bm br]
     keys.each_with_index do |k, i|
@@ -54,8 +59,8 @@ class Player
     end
   end
 end
-game = GameState.new
 
+game = GameState.new
 puts 'Please enter the name of first player for sign X, X also goes first:'
 player1 = Player.new(gets.chomp, 'X')
 puts "\nPlease enter the name of second player for sign O:"
@@ -80,6 +85,20 @@ until game.victory_condition('X') || game.victory_condition('O')
   game.display
   if game.victory_condition(current_player.sign) == true
     puts "\nCongratulations #{current_player.name} for the victory, may god have mercy upon this wretched video game"
+    game.board = [' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ']
+    current_player = player2
+    puts "\nNew Game!"
+    puts "\nPlease enter the name of first player for sign X, X also goes first:"
+    player1.name = gets.chomp
+    puts "\nPlease enter the name of second player for sign O:"
+    player2.name = gets.chomp, 'O'
+    puts "\nThere are two ways to make selections in this game, enter the corresponding keys in either grid style
+    and press enter."
+    puts ' Q | W | E          TL | TM | TR'
+    puts '-----------         ------------'
+    puts ' A | S | D          ML | MM | MR'
+    puts '-----------         ------------'
+    puts ' Z | X | C          BL | BM | BR'
   end
   current_player = (current_player == player1 ? player2 : player1)
 end
