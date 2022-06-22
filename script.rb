@@ -65,8 +65,7 @@ puts 'Please enter the name of first player for sign X, X also goes first:'
 player1 = Player.new(gets.chomp, 'X')
 puts "\nPlease enter the name of second player for sign O:"
 player2 = Player.new(gets.chomp, 'O')
-puts "\nThere are two ways to make selections in this game, enter the corresponding keys in either grid style
-and press enter."
+puts "\nThere are two ways to make selections in this game, enter the corresponding keys in either grid style and press enter."
 puts ' Q | W | E          TL | TM | TR'
 puts '-----------         ------------'
 puts ' A | S | D          ML | MM | MR'
