@@ -1,6 +1,7 @@
 # tic-tac-toe  
 
 Command line tic tac toe game built with Ruby  
+If you don't have ruby installed you can play the game at https://replit.com/@AxtonSmith/tic-tac-toe#README.md  
 
 ## plan  
 
