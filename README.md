@@ -2,6 +2,10 @@
 
 Command line tic tac toe game built with Ruby  
 
+## updates  
+
+-add a feature to start a new game  
+
 ## plan  
 
 -there should be game state, player, and victory condition check classes  
@@ -15,4 +19,11 @@ Command line tic tac toe game built with Ruby
 -designed a functioning display style for the board  
 -built the victory condition check loop and tested functionality for all cases  
 -built the input method for players  
--started building the game flow and found working logic to alternate player inputs and display board between rounds
+-started building the game flow and found working logic to alternate player inputs and display board between rounds  
+-Got the game flow to work with victory condition checks and get it fully functional  
+-Added in all the display instructions for the game  
+
+## finished  
+
+-learned to implement good object oriented programming principles, tried to never repeat any code  
+-learned a lot about ruby style guide by following rubocop which also helped with code readability
