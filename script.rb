@@ -51,7 +51,12 @@ class Player
   end
 end
 
+# testing victory_condition method that is currently broken
 game = GameState.new
+game.board = ['X', 'X', 'X', ' ', ' ', ' ', ' ', ' ', ' ']
+game.display
+
+puts 'correct' if game.victory_condition('X') == true
 puts 'Please enter the name of first player:'
 player1 = Player.new(gets.chomp, 'X')
 puts 'Please enter the name of second player:'
@@ -61,10 +66,14 @@ current_player = player1
 until game.victory_condition('X') || game.victory_condition('O')
   puts "#{current_player.name} please select a space"
   current_player.input(gets.chomp)
+  if game.board[current_player.selection] != ' '
+    puts 'Error, please select an empty space to place your sign'
+    current_player.input(gets.chomp)
+  end
   game.place_sign(current_player.selection, current_player.sign)
   game.display
   if game.victory_condition(current_player.sign)
     puts "Congratulations #{current_player.name} for the victory, may god have mercy upon this video game"
   end
-  current_player == player1 ? current_player = player2 : current_player = player1
+  current_player = (current_player == player1 ? player2 : player1)
 end
