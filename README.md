@@ -25,3 +25,7 @@ If you don't have ruby installed you can play the game at https://replit.com/@Ax
 -learned to implement good object oriented programming principles, tried to never repeat any code  
 -learned a lot about ruby style guide by following rubocop which also helped with code readability  
 -added a new game option after victory and logic to enter new names for new players
+
+## updates  
+
+-added RSpec testing to learn TDD but will have to refactor this project to get proper test coverage  
