@@ -9,5 +9,10 @@ describe GameState do
       game.place_sign(0, 'x')
       expect(game.board[0]).to eq('x')
     end
+
+    it "returns nil if given an invalid space" do
+      game.place_sign(9, 'x')
+      expect(game.board[9]). to be_nil
+    end
   end
 end

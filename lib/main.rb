@@ -17,7 +17,9 @@ class GameState
   end
 
   def place_sign(space, sign)
-    @board[space] = sign
+    if space >= 0 and space <= 8
+      @board[space] = sign
+    end
   end
 
   def victory_condition(sign)
