@@ -48,3 +48,36 @@ describe GameState do
     end
   end
 end
+
+describe Player do
+  describe "#input" do
+    subject(:player) { described_class.new }
+    it "changes selection to 0 when user inputs q" do
+      allow(player).to receive(:gets).and_return('q')
+      player.input
+      selection = player.instance_variable_get(:@selection)
+      expect(selection).to eql(0)
+    end
+
+    it "changes selection to 8 when user inputs br" do
+      allow(player).to receive(:gets).and_return('br')
+      player.input
+      selection = player.instance_variable_get(:@selection)
+      expect(selection).to eql(8)
+    end
+
+    it "prompts for valid input when given invalid input" do
+      allow(player).to receive(:gets).and_return('m', 'q')
+      error = "Please enter a valid input:"
+      expect(player).to receive(:puts).with(error)
+      player.input
+    end
+
+    it "prompts for valid input 10 times when given 10 invalid inputs" do
+      allow(player).to receive(:gets).and_return('l', 'm', 'n', 'o', 'p', '1', '2', '3', '4', '5', 'tl')
+      error = "Please enter a valid input:"
+      expect(player).to receive(:puts).with(error).exactly(10).times
+      player.input
+    end
+  end
+end

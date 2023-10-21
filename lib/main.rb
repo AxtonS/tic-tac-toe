@@ -40,7 +40,7 @@ class Player
   attr_reader :sign, :selection
   attr_accessor :name
 
-  def initialize(name, sign)
+  def initialize(name = ' ', sign = ' ')
     @name = name
     @sign = sign
   end
