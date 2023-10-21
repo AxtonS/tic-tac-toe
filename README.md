@@ -29,3 +29,4 @@ If you don't have ruby installed you can play the game at https://replit.com/@Ax
 ## updates  
 
 -added RSpec testing to learn TDD but will have to refactor this project to get proper test coverage  
+-rewrote the tests for all the methods in both classes and moved the run script to it's own file to allow for testing
