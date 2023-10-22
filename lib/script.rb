@@ -18,10 +18,10 @@ puts ' Z | X | C          BL | BM | BR'
 current_player = player1
 until game.victory_condition('X') || game.victory_condition('O')
   puts "\n#{current_player.name} please select a space:"
-  current_player.input
+  current_player.input(current_player.valid_input)
   while game.board[current_player.selection] != ' '
     puts "\nError, please select an empty space to place your sign:"
-    current_player.input
+    current_player.input(current_player.valid_input)
   end
   game.place_sign(current_player.selection, current_player.sign)
   game.display
